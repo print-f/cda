@@ -23,8 +23,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build ExampleBlazorApp/ExampleBlazorApp.sln -configuration Release
+      run: dotnet build cda/ExampleBlazorApp/ExampleBlazorApp.sln -configuration Release
     - name: Publish
-      run: dotnet publish ExampleBlazorApp/ExampleBlazorApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish cda/ExampleBlazorApp/ExampleBlazorApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
     - name: Test
       run: dotnet test --no-build --verbosity normal
