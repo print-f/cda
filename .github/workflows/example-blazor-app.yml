@@ -21,10 +21,10 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ExampleBlazorApp/ExampleBlazorApp.sln
     - name: Build
-      run: dotnet build cda/ExampleBlazorApp/ExampleBlazorApp.sln -configuration Release
+      run: dotnet build --no-restore ExampleBlazorApp/ExampleBlazorApp.sln
     - name: Publish
-      run: dotnet publish cda/ExampleBlazorApp/ExampleBlazorApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish --no-restore ExampleBlazorApp/ExampleBlazorApp.csproj -c o ${{env.DOTNET_ROOT}}/myapp
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal ExampleBlazorApp/ExampleBlazorApp.sln
